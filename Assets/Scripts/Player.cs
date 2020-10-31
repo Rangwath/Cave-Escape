@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
@@ -7,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float runSpeed = 3f;
     [SerializeField] private float jumpSpeed = 7.5f;
     [SerializeField] private float climbSpeed = 3f;
+    [SerializeField] private float deathDelay = 2f;
+    [SerializeField] private AudioClip waterSplashSFX = null;
 
 
     // State
@@ -100,22 +103,38 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards", "Water")))
         {
             isAlive = false;
 
             Vector2 playerVelocity = new Vector2(0, 0);
             myRigidBody.velocity = playerVelocity;
-            
-            myAnimator.SetTrigger("Die");
 
-            GameSession gameSession = FindObjectOfType<GameSession>();
-            if (gameSession == null)
+            if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
             {
-                Debug.LogError("GameSession is null, add GameSession to the scene.");
-                return;
+                AudioSource.PlayClipAtPoint(waterSplashSFX, Camera.main.transform.position);
+                myAnimator.SetTrigger("Die Water");
             }
-            gameSession.ProcessPlayerDeath();
+            else
+            {
+                myAnimator.SetTrigger("Die");
+            }
+            
+            StartCoroutine(ProcessPlayerDeath());
         }
+    }
+
+    IEnumerator ProcessPlayerDeath()
+    {
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        if (gameSession == null)
+        {
+            Debug.LogError("GameSession is null, add GameSession to the scene.");
+            yield break;
+        }
+
+        yield return new WaitForSeconds(deathDelay);
+
+        gameSession.ProcessPlayerDeath();
     }
 }

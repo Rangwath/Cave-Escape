@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3951438480731725851, guid: b5dedf3c9ab6385479981c9866453b35, type: 3}
       propertyPath: m_Name
-      value: MenuManager
+      value: Menu Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5dedf3c9ab6385479981c9866453b35, type: 3}
@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 724772995}
   - component: {fileID: 724772994}
   - component: {fileID: 724772993}
-  m_Layer: 13
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26310,7 +26310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4247366927083950631, guid: 437abe7a09277e4478f9fef52df138fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.971488
+      value: -0.9679737
       objectReference: {fileID: 0}
     - target: {fileID: 4247366927083950631, guid: 437abe7a09277e4478f9fef52df138fe, type: 3}
       propertyPath: m_LocalPosition.y

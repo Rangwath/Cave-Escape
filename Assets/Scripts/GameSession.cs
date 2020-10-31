@@ -42,8 +42,7 @@ public class GameSession : MonoBehaviour
 
         if (playerLives > 1)
         {
-            TakeLife(menuManager);
-            
+            TakeLife(menuManager);         
         }
         else
         {
