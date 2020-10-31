@@ -23795,7 +23795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6397c9113f59c64b91870473b92242d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLives: 10
+  playerLives: 5
   score: 0
   livesText: {fileID: 2039791123}
   scoreText: {fileID: 44741802}
@@ -23921,9 +23921,9 @@ RectTransform:
   m_Father: {fileID: 649227544}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 620.2, y: -374.98}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -167.79999, y: 69.01999}
   m_SizeDelta: {x: 65.28668, y: 65.28668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966381277
@@ -24491,6 +24491,14 @@ PrefabInstance:
     - target: {fileID: 6510257359280385907, guid: 49219c0bfeeaa5e4c8703c009384372c, type: 3}
       propertyPath: m_Name
       value: Lose Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510257359280385907, guid: 49219c0bfeeaa5e4c8703c009384372c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510257359280385910, guid: 49219c0bfeeaa5e4c8703c009384372c, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6510257359280385911, guid: 49219c0bfeeaa5e4c8703c009384372c, type: 3}
       propertyPath: m_LocalPosition.x

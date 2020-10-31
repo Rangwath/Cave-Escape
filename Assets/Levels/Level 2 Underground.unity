@@ -1022,6 +1022,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lose Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 6510257359280385907, guid: 49219c0bfeeaa5e4c8703c009384372c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6510257359280385911, guid: 49219c0bfeeaa5e4c8703c009384372c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
