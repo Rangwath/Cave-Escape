@@ -25,6 +25,6 @@ public class LevelExit : MonoBehaviour
         }
 
         scenePersist.gameObject.SetActive(false);
-        Destroy(scenePersist);
+        Destroy(scenePersist.gameObject);
     }
 }
