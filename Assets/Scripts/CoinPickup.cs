@@ -3,6 +3,7 @@
 public class CoinPickup : MonoBehaviour
 {
     [SerializeField] private AudioClip coinPickupSFX = null;
+    [SerializeField] private float coinPickupVolume = 0.6f;
     [SerializeField] private int coinScore = 1;
 
     private bool addedToScore = false;
@@ -17,7 +18,7 @@ public class CoinPickup : MonoBehaviour
             {
                 addedToScore = true;
 
-                AudioSource.PlayClipAtPoint(coinPickupSFX, Camera.main.transform.position);
+                AudioSource.PlayClipAtPoint(coinPickupSFX, Camera.main.transform.position, coinPickupVolume);
 
                 GameSession gameSession = FindObjectOfType<GameSession>();
                 if (gameSession == null)

@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float climbSpeed = 3f;
     [SerializeField] private float deathDelay = 2f;
     [SerializeField] private AudioClip waterSplashSFX = null;
+    [SerializeField] private float waterSplashVolume = 1f;
+    [SerializeField] private AudioClip dieSFX = null;
+    [SerializeField] private float dieVolume = 0.5f;
 
 
     // State
@@ -112,12 +115,13 @@ public class Player : MonoBehaviour
 
             if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
             {
-                AudioSource.PlayClipAtPoint(waterSplashSFX, Camera.main.transform.position);
+                AudioSource.PlayClipAtPoint(waterSplashSFX, Camera.main.transform.position, waterSplashVolume);
                 myAnimator.SetTrigger("Die Water");
             }
             else
             {
-                myAnimator.SetTrigger("Die");
+                AudioSource.PlayClipAtPoint(dieSFX, Camera.main.transform.position, dieVolume);
+                myAnimator.SetTrigger("Die Enemy");
             }
             
             StartCoroutine(ProcessPlayerDeath());

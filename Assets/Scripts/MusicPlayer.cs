@@ -2,7 +2,9 @@
 
 public class MusicPlayer : MonoBehaviour
 {
-    AudioSource audioSource;
+    [SerializeField] private float initialVolume = 1f;
+
+    private AudioSource audioSource = null;
 
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class MusicPlayer : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = initialVolume;
     }
 
     public void SetVolume(float volume)
