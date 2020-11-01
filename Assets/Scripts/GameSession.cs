@@ -46,7 +46,8 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            ResetGameSession(menuManager);
+            menuManager.DisplayLoseMenu();
+            ResetGameSession();
         }
     }
 
@@ -63,10 +64,17 @@ public class GameSession : MonoBehaviour
         menuManager.ReloadCurrentScene();
     }
 
-    private void ResetGameSession(MenuManager menuManager)
+    public void ResetGameSession()
     {
-        menuManager.HandleLoseCondition();
+        // ScenePersist cleanup if any is found
+        ScenePersist[] scenePersists = FindObjectsOfType<ScenePersist>();
 
+        foreach (ScenePersist scenePersist in scenePersists)
+        {
+            Destroy(scenePersist.gameObject);
+        }
+
+        // GameSession cleanup
         Destroy(gameObject);
     }
 }

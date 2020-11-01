@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    public void HandleLoseCondition()
+    public void DisplayLoseMenu()
     {
         loseMenu.SetActive(true);
     }
