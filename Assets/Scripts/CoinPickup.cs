@@ -7,17 +7,21 @@ public class CoinPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioSource.PlayClipAtPoint(coinPickupSFX, Camera.main.transform.position);
-        
-        GameSession gameSession = FindObjectOfType<GameSession>();
-        if (gameSession == null)
-        {
-            Debug.LogError("GameSession is null, add GameSession to the scene.");
-            return;
-        }
-        gameSession.AddToScore(coinScore);
+        int playerLayer = LayerMask.NameToLayer("Player");
 
-        Destroy(gameObject);
-        //gameObject.SetActive(false);
+        if (collision.gameObject.layer == playerLayer)
+        {
+            AudioSource.PlayClipAtPoint(coinPickupSFX, Camera.main.transform.position);
+
+            GameSession gameSession = FindObjectOfType<GameSession>();
+            if (gameSession == null)
+            {
+                Debug.LogError("GameSession is null, add GameSession to the scene.");
+                return;
+            }
+            gameSession.AddToScore(coinScore);
+
+            gameObject.SetActive(false);
+        }
     }
 }
